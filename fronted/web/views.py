@@ -9,12 +9,15 @@ from xml.dom import minidom
 import xml.etree.ElementTree as ET
 
 # Create your views here.
+archivos =[]
+clientes=[]
 
 def index(request):
     xml_data = req.get('http://localhost:5000/tareas')
     xml_str = xml_data.text
     context ={
-        'dato': xml_str
+        'dato': xml_str,
+        'csv': archivos,
     }
     return render(request, 'index.html', context)
 
@@ -33,8 +36,25 @@ def reportes(request):
     return render(request, 'reportes.html', context)
 
 def recibir_xml(request):
+    global archivos,clientes
+    
+    if request.method == 'POST':
+        csv_index= request.FILES.getlist('docs')
+        print()
+        for i in csv_index:
+            archivos.append(i.file.getvalue().decode('latin-1'))
+
+        #print(type(archivos))
+        clientes=archivos[0].split('\n')
+        print(type(clientes))
+        print(clientes)
+        print('line-------')
+
+        for line in clientes:
+            print(line)
 
 
+        
 
         #for a in archivos:
         #    print(a)

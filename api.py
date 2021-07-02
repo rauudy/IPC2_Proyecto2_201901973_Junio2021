@@ -76,5 +76,13 @@ def get_por_fecha():
             contador += 1
     return str(contador)
 
+@app.route("/csv_carga", methods=['GET'])
+def get_csv():
+    pass
+
+@app.route("/csv_carga", methods=['POST'])
+def post_csv():
+    pass
+
 if __name__ == '__main__':
     app.run(debug=True)

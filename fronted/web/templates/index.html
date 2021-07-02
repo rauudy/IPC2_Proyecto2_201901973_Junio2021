@@ -17,17 +17,31 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
 ">
     <h1 style="text-align: center;color: azure;">Proyecto 2 IPC</h1>
 
-    <form action="/recibir-xml" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="docs" id="docs" multiple />
-        <input type="submit" value="Enviar" />
-    </form>
+    <br>
+
+    <div class="container">
+        <form action="/recibir-xml" method="post" enctype="multipart/form-data"
+            style="text-align: center; color: white;">
+            {% csrf_token %}
+            <input type="file" name="docs" id="docs" multiple />
+            <input type="submit" value="Enviar" />
+        </form>
+    </div>
+    <br>
+
+    <h3 style="color: azure; text-align: center;">CSV Cargado</h3>
+    <textarea name="output1" id="output" cols="130" rows="15" readonly style="margin-left:15%">
+        {{csv}}
+    </textarea>
+    <br>
 
     <h3 style="color: azure; text-align: center;">XML Generado</h3>
-    <textarea name="output" id="output" cols="50" rows="30" readonly>
+    <textarea name="output2" id="output" cols="130" rows="15" readonly style="margin-left:15%">
         {{dato}}
     </textarea>
+    <br>
 
+    </div>
 
 </body>
 
