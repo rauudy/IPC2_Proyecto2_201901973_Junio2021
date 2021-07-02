@@ -21,4 +21,6 @@ from web.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('recibir-xml', recibir_xml ,name='recibir-xml'),
+    path('reportes', reportes ,name='reportes'),
 ]
